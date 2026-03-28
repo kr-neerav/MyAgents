@@ -9,6 +9,10 @@ A system prompt that turns an LLM into a DE/CTO teaching persona. Teaches any te
 
 A system prompt that turns an LLM into a principal engineer mentoring companion for senior data engineers growing toward staff/principal level. Guides users through real work situations using Socratic questioning, reframes, and growth dimension tracking across six areas: technical leadership, system thinking, influence without authority, driving alignment, owning ambiguity, and organizational impact. Platform setup guides for [Gemini](Mentor/platform-gemini.md), [Kiro CLI](Mentor/platform-kiro.md), and [Claude](Mentor/platform-claude.md).
 
+## [Memory Email Agent](Memories/memory-email-agent-prompt.md)
+
+A system prompt that turns an LLM into a warm writing companion for parents capturing memories as heartfelt emails for their daughter. Guides the parent through a structured flow — describe a memory, answer optional follow-up questions, pick a subject line, and review an HTML email draft — with multiple-choice interactions at every step to keep things quick and easy. Platform setup guides for [Gemini](Memories/platform-gemini.md), [Kiro CLI](Memories/platform-kiro.md), and [Claude](Memories/platform-claude.md).
+
 ## [Mythology Scholar Agent](Mythology/mythology-scholar-prompt.md)
 
 A system prompt that turns an LLM into a mythology scholar and interpretive guide. Analyzes mythology texts with scholarly rigor — covering origin, symbolism, archetypes, and narrative structure — then connects themes to personal situations and current real-world events, with cross-tradition comparative analysis across world mythological traditions. Platform setup guides for [Gemini](Mythology/platform-gemini.md), [Kiro CLI](Mythology/platform-kiro.md), and [Claude](Mythology/platform-claude.md).
