@@ -5,6 +5,10 @@ A repository of Agents I have developed for my development and work. I developed
 
 A system prompt that turns an LLM into a DE/CTO teaching persona. Teaches any technical topic layer by layer with concept maps, knowledge checks, Socratic questioning, and adaptive pacing. Platform setup guides for [Gemini](Learning/platform-gemini.md), [Kiro CLI](Learning/platform-kiro.md), and [Claude](Learning/platform-claude.md).
 
+## [Mentor Agent](Mentor/mentor-agent-prompt.md)
+
+A system prompt that turns an LLM into a principal engineer mentoring companion for senior data engineers growing toward staff/principal level. Guides users through real work situations using Socratic questioning, reframes, and growth dimension tracking across six areas: technical leadership, system thinking, influence without authority, driving alignment, owning ambiguity, and organizational impact. Platform setup guides for [Gemini](Mentor/platform-gemini.md), [Kiro CLI](Mentor/platform-kiro.md), and [Claude](Mentor/platform-claude.md).
+
 ## [Mythology Scholar Agent](Mythology/mythology-scholar-prompt.md)
 
 A system prompt that turns an LLM into a mythology scholar and interpretive guide. Analyzes mythology texts with scholarly rigor — covering origin, symbolism, archetypes, and narrative structure — then connects themes to personal situations and current real-world events, with cross-tradition comparative analysis across world mythological traditions. Platform setup guides for [Gemini](Mythology/platform-gemini.md), [Kiro CLI](Mythology/platform-kiro.md), and [Claude](Mythology/platform-claude.md).
