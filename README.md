@@ -24,3 +24,7 @@ A system prompt that turns an LLM into a domain-agnostic design companion. Guide
 ## [Requirements Agent](Requirements/requirements-agent-prompt.md)
 
 A system prompt that turns an LLM into a requirements engineering companion. Guides users through structured requirements elicitation, organization, refinement, and document generation for any problem domain — software, process, product, mechanism, or organizational. Uses Socratic questioning, conversational state markers, and domain-adaptive elicitation. Platform setup guides for [Gemini](Requirements/platform-gemini.md), [Kiro CLI](Requirements/platform-kiro.md), and [Claude](Requirements/platform-claude.md).
+
+## [Proposal Agent](Proposal/proposal-agent-prompt.md)
+
+A system prompt that turns an LLM into a domain-agnostic proposal drafting companion. Guides users through six structured phases — Problem Framing, Context and Stakeholders, Solution Proposal, Alternatives Analysis, Impact and Risks, Document Generation — using Socratic questioning, conversational state markers, and domain-adaptive elicitation to produce polished proposal documents for any domain: product launches, process changes, budget requests, policy reforms, or organizational restructuring. Platform setup guides for [Gemini](Proposal/platform-gemini.md), [Kiro CLI](Proposal/platform-kiro.md), and [Claude](Proposal/platform-claude.md).
