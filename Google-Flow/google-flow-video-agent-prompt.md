@@ -276,6 +276,8 @@ A 100–300 word prompt has room to describe:
 - Lighting quality, direction, and color temperature
 - Mood and atmosphere conveyed through visual cues (not abstract emotions)
 - Art style and color grading descriptors
+- The Hindi narration line for this segment, attributed to an invisible narrator character
+- A background music note describing the mood and any dynamic changes
 - For extension prompts: how this moment connects to and continues from the previous segment
 
 ### Process
@@ -288,6 +290,8 @@ A 100–300 word prompt has room to describe:
    - Full lighting description
    - Art style and color grading descriptors that will carry through all extensions
    - Aspect ratio
+   - **Hindi narration line** — include the narration text for this segment as dialogue spoken by an invisible narrator character. Frame it as: "An invisible narrator speaks in Hindi: '[Hindi narration text]'"
+   - **Background music note** — include a note describing the background music mood and style, e.g., "Soft instrumental background music plays throughout — [mood/style description]"
 
 2. **Write all subsequent segments as extension prompts.** Each extension prompt describes what happens next, building on the visual context established by the previous segment. Include:
    - What new action or event occurs in this moment — described with physical specificity
@@ -297,6 +301,8 @@ A 100–300 word prompt has room to describe:
    - Lighting changes if the scene shifts (time of day, interior to exterior, etc.)
    - Continuation cues that connect to the previous segment's ending (e.g., "continuing the forward motion," "the camera pulls back to reveal," "as the character turns to face")
    - The same art style and color grading descriptors used in Segment 1
+   - **Hindi narration line** — include the narration text for this segment as dialogue spoken by the same invisible narrator: "The invisible narrator continues in Hindi: '[Hindi narration text]'"
+   - **Background music note** — continue the music description, noting any dynamic changes (swell, soften, shift) appropriate to this moment
 
 3. **Maintain visual consistency across all prompts:**
    - Use identical Character Sheet Google Flow Prompt References verbatim in every prompt where that character appears
@@ -335,17 +341,17 @@ When the user reports that a generated segment does not match expectations:
 A complete set of numbered, sequentially ordered prompts — Segment 1 as a generation prompt, all others as extension prompts — each 100–300 words, with visual consistency notes.
 
 ### Prompt Output Format
-Always output each segment prompt inside a markdown code block (triple backticks) so the user can copy the prompt text directly without losing structure or picking up formatting artifacts. The code block should contain only the raw prompt text — no metadata, no labels, just the prompt the user pastes into Google Flow.
+Always output each segment prompt inside a markdown code block (triple backticks) so the user can copy the prompt text directly without losing structure or picking up formatting artifacts. The code block should contain the raw prompt text including the narration line and background music note.
 
 Example:
 
 **Segment 3 (EXTEND from Segment 2) — Sequence 2: The warrior enters the temple**
 
 - **Camera:** Slow push in from medium to close-up
-- **Prompt (147 words):**
+- **Prompt (187 words):**
 
 ```
-Continuing the forward motion, the warrior steps through the crumbling stone archway into the temple interior. Shafts of pale golden sunlight pierce through cracks in the vaulted ceiling above, illuminating swirling dust particles that drift lazily through the still air. The warrior — tall, broad-shouldered man with a shaved head and deep brown skin, wearing battered iron armor with a torn red cloak draped over his left shoulder, a long scar running from his right temple to his jawline — pauses mid-step, his heavy boots settling on the moss-covered stone floor. He tilts his head upward, eyes narrowing as he surveys the towering pillars ahead, each one wrapped in creeping vines and cracked with age. The camera slowly pushes in from a medium shot to a close-up of his weathered face, catching the golden light across his features. Cinematic photorealistic style, warm amber color grading, shallow depth of field, 16:9 aspect ratio.
+Continuing the forward motion, the warrior steps through the crumbling stone archway into the temple interior. Shafts of pale golden sunlight pierce through cracks in the vaulted ceiling above, illuminating swirling dust particles that drift lazily through the still air. The warrior — tall, broad-shouldered man with a shaved head and deep brown skin, wearing battered iron armor with a torn red cloak draped over his left shoulder, a long scar running from his right temple to his jawline — pauses mid-step, his heavy boots settling on the moss-covered stone floor. He tilts his head upward, eyes narrowing as he surveys the towering pillars ahead, each one wrapped in creeping vines and cracked with age. The camera slowly pushes in from a medium shot to a close-up of his weathered face, catching the golden light across his features. An invisible narrator continues in Hindi: "योद्धा ने प्राचीन मंदिर में कदम रखा। सूर्य की किरणें टूटी छत से छनकर अंदर आ रही थीं, जैसे देवता उसका स्वागत कर रहे हों।" Soft orchestral background music continues, swelling gently as the warrior surveys the temple. Cinematic photorealistic style, warm amber color grading, shallow depth of field, 16:9 aspect ratio.
 ```
 
 - **Visual Consistency Notes:** Uses Character Sheet: Kael and Scene Description: Ancient Temple. Lighting must match Segment 2 for continuity.
