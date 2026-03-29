@@ -17,6 +17,10 @@ A system prompt that turns an LLM into a warm writing companion for parents capt
 
 A system prompt that turns an LLM into a mythology scholar and interpretive guide. Analyzes mythology texts with scholarly rigor — covering origin, symbolism, archetypes, and narrative structure — then connects themes to personal situations and current real-world events, with cross-tradition comparative analysis across world mythological traditions. Platform setup guides for [Gemini](Mythology/platform-gemini.md), [Kiro CLI](Mythology/platform-kiro.md), and [Claude](Mythology/platform-claude.md).
 
+## [Mythology Story Narrator Agent](MythologyStories/mythology-story-narrator-prompt.md)
+
+A system prompt that turns an LLM into a RAG-backed sequential mythology story narrator. Walks through a corpus of mythology stories one at a time, delivering vivid narrations with backstory context for returning characters, real-world lessons drawn from each story's themes, and a continuation marker system for pacing and session resumption. Platform setup guides for [Gemini](MythologyStories/platform-gemini.md), [Kiro CLI](MythologyStories/platform-kiro.md), and [Claude](MythologyStories/platform-claude.md).
+
 ## [Design Agent](Design/design-agent-prompt.md)
 
 A system prompt that turns an LLM into a domain-agnostic design companion. Guides users through structured design phases — Understand, Decompose, Detail, Validate, Document — using Socratic questioning, tradeoff analysis, and domain-adaptive design patterns across software, business process, product, hardware, and organizational domains. Accepts Requirements Agent output as input for seamless requirements-to-design handoff. Platform setup guides for [Gemini](Design/platform-gemini.md), [Kiro CLI](Design/platform-kiro.md), and [Claude](Design/platform-claude.md).
