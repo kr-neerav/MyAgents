@@ -358,8 +358,8 @@ Guide the user on assembling all generated segments into a cohesive final video,
    - Keep recommendations practical — prioritize tools that are free and easy to learn
 
 4. **Provide audio guidance:**
-   - **Narration** — if the story benefits from voiceover, suggest where narration should be placed and what tone it should take
-   - **Music** — recommend the mood, tempo, and style of background music; suggest where music should swell, fade, or change
+   - **Narration** — every video has continuous narration telling the story over the visuals. Write a narration script that covers every sequence, timed to match the segment durations. The narration should flow as one continuous telling of the story from beginning to end, including the closing lesson. Recommend a narration tone that matches the story's mood.
+   - **Music** — every video has background music playing continuously from start to finish. Recommend a single cohesive music track (or a consistent style) that complements the story's emotional arc. The music should be low enough to not compete with narration (10–20% volume) but present throughout. Note where the music should swell, soften, or shift to match narrative beats.
    - **Sound effects** — identify moments where sound effects would enhance the video (footsteps, ambient sounds, impact sounds)
    - Suggest sources for royalty-free audio if appropriate
 
@@ -394,7 +394,7 @@ Compile all outputs from Phases 1–6 into a single, structured, step-by-step pr
    - **Header** — story title, estimated total video duration, estimated total production effort
    - **Pre-Production section** — Character Sheets (review and approve), Scene Descriptions (review and approve), reference images to generate or source
    - **Production section** — segment-by-segment prompts in order, each 100–300 words, with Segment 1 as a generation prompt and all subsequent segments as extension prompts, including camera instructions and the full prompt text
-   - **Post-Production section** — stitching order, transition types, audio recommendations, export settings
+   - **Post-Production section** — stitching order, transition types, narration script, music recommendations, lesson text overlay, export settings
 
 2. **Use checklist format** throughout so the user can track progress:
    - Each actionable step should be a checkbox item
@@ -934,14 +934,30 @@ Use this structure when compiling the complete Production Guide in Phase 7. The 
   - Timing: Fade in over the closing segment's visuals, hold for [X] seconds
   - Note: Google Flow cannot render readable text — this must be added as a text overlay in the editing tool
 
-### Audio
-- [ ] Add background music — Mood: [recommended mood/tempo/style], Source: [suggestion for royalty-free audio]
-- [ ] Add narration (if applicable) — Place narration at: [specific segment ranges or timestamps]
+### Narration
+- [ ] Record or generate narration using the script below
+  - Recommended tone: [narration tone — e.g., warm and reflective, calm and measured]
+  - TTS alternative: [tool suggestion if user prefers text-to-speech]
+- [ ] Narration script:
+  - Segment [#] ([X]s): "[Narration text for this segment — the story as told by the narrator]"
+  - Segment [#] ([X]s): "[Narration text continuing the story]"
+  - *[Repeat for every segment — narration is continuous from start to finish, including the closing lesson]*
+- [ ] Layer narration track over the video timeline, aligned to segment timings
+- [ ] Verify narration pacing matches visual pacing for each segment
+
+### Music
+- [ ] Add background music — plays continuously from start to finish
+  - Mood/style: [recommended mood/tempo/style — e.g., gentle orchestral, warm acoustic]
+  - Source: [suggestion for royalty-free music]
+- [ ] Set music volume to 10–20% (narration is always the dominant audio)
+- [ ] Adjust music dynamics: soften during dialogue-heavy narration, swell subtly at climactic moments, fade to soft close during lesson segment
+
+### Sound Effects
 - [ ] Add sound effects (if applicable):
   - [ ] [Segment #]: [Sound effect description — e.g., footsteps on stone]
   - [ ] [Segment #]: [Sound effect description]
   - [ ] *[Repeat as needed]*
-- [ ] Balance audio levels across all tracks
+- [ ] Balance all audio levels — narration loudest, music underneath, sound effects accent only
 
 ### Export
 - [ ] Set output format: [Recommended format — e.g., MP4]
@@ -1349,26 +1365,36 @@ Audio transforms a sequence of silent video clips into a cohesive viewing experi
 
 **Narration**
 
-- If the story has dialogue or benefits from voiceover, recommend where narration should be placed in the timeline.
-- Suggest the narration tone that matches the story's mood — warm and reflective for emotional stories, energetic and punchy for action-driven stories, calm and measured for informational content.
+Every video has continuous narration telling the story from beginning to end. The narration is not optional — it is a core part of the video.
+
+- **Write a full narration script** as part of the Production Guide. The script should:
+  - Tell the complete story as a continuous voiceover, covering every sequence from opening to closing lesson
+  - Be timed to match the segment durations — each section of narration should align with its corresponding visual segment
+  - Flow naturally as one cohesive telling, not as disconnected captions per segment
+  - Include the story's lesson or moral as the final narration passage, timed to the closing segment
+  - Use language that complements the visuals — describe what the viewer is seeing while adding narrative context, emotion, and meaning that the visuals alone cannot convey
+- **Narration tone** should match the story's mood — warm and reflective for emotional stories, energetic and punchy for action-driven stories, calm and measured for informational content, reverent and evocative for mythological or historical stories.
 - Advise the user to record narration separately and layer it over the video in the editing tool, rather than trying to embed it in the Google Flow generation.
 - If the user does not want to record their own voice, suggest text-to-speech tools as an alternative (e.g., ElevenLabs free tier, Google Cloud Text-to-Speech, or the TTS features built into CapCut and DaVinci Resolve).
-- Timing guidance: narration should be laid down first in the audio timeline, then music and sound effects should be mixed around it.
+- **Timing guidance:** Narration should be laid down first in the audio timeline. Music and sound effects are mixed around it. The narration track is the primary audio — everything else supports it.
 
 **Music**
 
-- Recommend the mood, tempo, and style of background music that complements the story's emotional arc. For example: "A gentle acoustic guitar track for the opening, building to orchestral strings during the climax, and fading to a soft piano for the resolution."
-- Suggest where music should:
-  - **Enter** — typically at the start or during the first establishing shot
-  - **Swell** — at emotional peaks or climactic moments
-  - **Fade or shift** — at major scene transitions or tonal changes
-  - **Exit** — at the end, either fading out or ending on a deliberate final note
+Every video has background music playing continuously from start to finish. The music is not optional — it runs under the narration throughout the entire video.
+
+- **Recommend a single cohesive music track** (or a consistent musical style) that complements the story's emotional arc. The music should feel like one continuous score, not a playlist of different tracks.
+- Music should:
+  - **Start** at the very beginning of the video, before or alongside the first narration line
+  - **Play continuously** under the narration throughout every scene
+  - **Swell subtly** at emotional peaks or climactic moments
+  - **Soften** during quiet, reflective, or dialogue-heavy narration passages
+  - **Fade to a soft close** during the final lesson segment
+- **Volume:** Music must stay low enough to never compete with narration. Guideline: music at 10–20% volume throughout. The narration is always the dominant audio track.
 - Recommend royalty-free music sources:
   - **YouTube Audio Library** — free, no attribution required for most tracks
   - **Pixabay Music** — free, no attribution required
   - **Free Music Archive** — free, check individual track licenses
   - **Uppbeat** — free tier with attribution
-- Advise keeping music volume low enough that it does not compete with narration (if present). A common guideline: music at 10–20% volume when narration is active, 40–60% during narration-free segments.
 
 **Sound Effects**
 
@@ -1392,7 +1418,7 @@ Every video ends with the story's lesson or moral presented as a text overlay on
 - **Position:** Center screen for maximum impact, or lower third if the visuals behind the text are important to see.
 - **Font:** Clean, readable font that matches the video's tone — serif for classical or literary stories, sans-serif for modern or minimalist stories. White text with a subtle drop shadow or semi-transparent dark background ensures readability over any visual.
 - **Timing:** Fade the text in 0.5–1 second after the final segment begins. Hold for at least 4–5 seconds so the viewer can read and absorb it. Fade out with the video's ending.
-- **Audio pairing:** The lesson overlay works well with music fading to a soft close or a brief moment of silence before the final note. Avoid narration competing with on-screen text — use one or the other, not both simultaneously.
+- **Audio pairing:** The lesson overlay pairs with the final narration passage reading the lesson aloud. Music should fade to a soft close underneath. The narration of the lesson and the on-screen text should match — the viewer reads and hears the lesson simultaneously.
 
 ---
 
