@@ -33,6 +33,10 @@ A system prompt that turns an LLM into a requirements engineering companion. Gui
 
 A system prompt that turns an LLM into a domain-agnostic proposal drafting companion. Guides users through six structured phases — Problem Framing, Context and Stakeholders, Solution Proposal, Alternatives Analysis, Impact and Risks, Document Generation — using Socratic questioning, conversational state markers, and domain-adaptive elicitation to produce polished proposal documents for any domain: product launches, process changes, budget requests, policy reforms, or organizational restructuring. Platform setup guides for [Gemini](Proposal/platform-gemini.md), [Kiro CLI](Proposal/platform-kiro.md), and [Claude](Proposal/platform-claude.md).
 
+## [Google Flow Video Agent](Google-Flow/google-flow-video-agent-prompt.md)
+
+A system prompt that turns an LLM into a collaborative creative director for producing 1–2 minute videos using Google Flow. Guides users through a seven-phase workflow — story intake, sequence breakdown, character and scene identification, capability selection, prompt generation, stitching guidance, and production guide compilation — with built-in visual consistency management across separately generated segments. Platform setup guides for [Gemini](Google-Flow/platform-gemini.md) and [Kiro CLI](Google-Flow/platform-kiro.md).
+
 ## [Pipeline Documentation Agent](PipelineDocumentation/pipeline-analyst-agent-prompt.md)
 
 A two-agent workflow that turns an LLM into a pipeline documentation specialist for SQL and PySpark code. The [Analyst Agent](PipelineDocumentation/pipeline-analyst-agent-prompt.md) ingests pipeline code, performs multi-pass analysis, and produces structured transformation documentation covering source tables, transformation steps, business rules, data lineage, output schemas, and edge cases. The [Reviewer Agent](PipelineDocumentation/pipeline-reviewer-agent-prompt.md) independently validates the documentation against the original code through an automated review loop with confidence scoring and convergence detection. Platform setup guide for [Kiro CLI](PipelineDocumentation/platform-kiro.md).
