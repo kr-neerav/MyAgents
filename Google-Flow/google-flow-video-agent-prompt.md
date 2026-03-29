@@ -80,6 +80,7 @@ Accept the user's story, understand the narrative, and confirm it fits the 1–2
    - Key characters identified in the story
    - Primary settings and locations
    - The emotional tone and mood
+   - The lesson or moral of the story — every story includes a lesson, and this will be presented as the closing segment of the video
    - Estimated video duration based on the narrative density and pacing
 
 3. **Estimate duration.** Provide a rough duration estimate in seconds. Use these guidelines:
@@ -122,7 +123,7 @@ Accept the user's story, understand the narrative, and confirm it fits the 1–2
 - Suggest a basic structure: "What if we open with [X], build to [Y], and close with [Z]?"
 
 ### Phase 1 Output
-A confirmed narrative summary including: story arc, characters, settings, emotional tone, and estimated duration. This summary becomes the foundation for all subsequent phases.
+A confirmed narrative summary including: story arc, characters, settings, emotional tone, the lesson or moral, and estimated duration. This summary becomes the foundation for all subsequent phases.
 
 ---
 
@@ -148,9 +149,15 @@ Decompose the confirmed story into an ordered list of filmable sequences, each w
    - Provide guidance on how the segments connect visually (continuous motion, matching end/start frames, consistent camera angle)
    - Note which segments within a sequence should use video extension versus separate generation
 
-4. **Verify total duration.** Sum all sequence durations and confirm the total falls within the 1–2 minute target. If it drifts outside the target, recommend adjustments before proceeding.
+4. **Always include a closing lesson segment.** The final sequence in every Sequence Breakdown must present the story's lesson or moral. This closing segment should:
+   - Visually reinforce the lesson through imagery that echoes the story's key moments or themes
+   - Use a reflective, contemplative tone — slower pacing, wider shots, or symbolic imagery
+   - Be designed so the lesson text can be overlaid during post-production (since Google Flow cannot render readable text, the lesson will be added as a text overlay in the editing tool)
+   - Typically 5–10 seconds to give the viewer time to absorb the message
 
-5. **Present the Sequence Breakdown** to the user in a structured table format and ask for approval or revisions.
+5. **Verify total duration.** Sum all sequence durations and confirm the total falls within the 1–2 minute target. If it drifts outside the target, recommend adjustments before proceeding.
+
+6. **Present the Sequence Breakdown** to the user in a structured table format and ask for approval or revisions.
 
 ### Handling Revision Requests
 When the user requests changes to the Sequence Breakdown:
@@ -920,6 +927,13 @@ Use this structure when compiling the complete Production Guide in Phase 7. The 
 - [ ] Review full assembly for pacing and continuity
 - [ ] Trim or adjust segment durations as needed
 
+### Lesson Text Overlay
+- [ ] Add lesson/moral text overlay to the final segment: "[The story's lesson text]"
+  - Font: [Recommended font style — clean, readable, matching the video's tone]
+  - Position: [Center screen or lower third]
+  - Timing: Fade in over the closing segment's visuals, hold for [X] seconds
+  - Note: Google Flow cannot render readable text — this must be added as a text overlay in the editing tool
+
 ### Audio
 - [ ] Add background music — Mood: [recommended mood/tempo/style], Source: [suggestion for royalty-free audio]
 - [ ] Add narration (if applicable) — Place narration at: [specific segment ranges or timestamps]
@@ -1365,6 +1379,20 @@ Audio transforms a sequence of silent video clips into a cohesive viewing experi
   - **Pixabay Sound Effects** — free, no attribution required
   - **YouTube Audio Library** — includes sound effects alongside music
 - Timing guidance: sound effects should be synced precisely to the visual action. Advise the user to use their editing tool's timeline to align effects frame-by-frame where precision matters.
+
+---
+
+### Lesson Text Overlay
+
+Every video ends with the story's lesson or moral presented as a text overlay on the final segment. Since Google Flow cannot render readable text, this must be added in the editing tool during post-production.
+
+**Instructions for the lesson overlay:**
+- **Text content:** The lesson or moral identified during Phase 1 (Story Intake). Present it as a concise, impactful statement — one or two sentences maximum.
+- **Placement:** Overlay the text on the final segment's visuals. The final segment should be designed with reflective, contemplative imagery that complements the lesson (established during Phase 2 Sequence Breakdown).
+- **Position:** Center screen for maximum impact, or lower third if the visuals behind the text are important to see.
+- **Font:** Clean, readable font that matches the video's tone — serif for classical or literary stories, sans-serif for modern or minimalist stories. White text with a subtle drop shadow or semi-transparent dark background ensures readability over any visual.
+- **Timing:** Fade the text in 0.5–1 second after the final segment begins. Hold for at least 4–5 seconds so the viewer can read and absorb it. Fade out with the video's ending.
+- **Audio pairing:** The lesson overlay works well with music fading to a soft close or a brief moment of silence before the final note. Avoid narration competing with on-screen text — use one or the other, not both simultaneously.
 
 ---
 
