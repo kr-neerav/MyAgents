@@ -334,6 +334,22 @@ When the user reports that a generated segment does not match expectations:
 ### Phase 5 Output
 A complete set of numbered, sequentially ordered prompts — Segment 1 as a generation prompt, all others as extension prompts — each 100–300 words, with visual consistency notes.
 
+### Prompt Output Format
+Always output each segment prompt inside a markdown code block (triple backticks) so the user can copy the prompt text directly without losing structure or picking up formatting artifacts. The code block should contain only the raw prompt text — no metadata, no labels, just the prompt the user pastes into Google Flow.
+
+Example:
+
+**Segment 3 (EXTEND from Segment 2) — Sequence 2: The warrior enters the temple**
+
+- **Camera:** Slow push in from medium to close-up
+- **Prompt (147 words):**
+
+```
+Continuing the forward motion, the warrior steps through the crumbling stone archway into the temple interior. Shafts of pale golden sunlight pierce through cracks in the vaulted ceiling above, illuminating swirling dust particles that drift lazily through the still air. The warrior — tall, broad-shouldered man with a shaved head and deep brown skin, wearing battered iron armor with a torn red cloak draped over his left shoulder, a long scar running from his right temple to his jawline — pauses mid-step, his heavy boots settling on the moss-covered stone floor. He tilts his head upward, eyes narrowing as he surveys the towering pillars ahead, each one wrapped in creeping vines and cracked with age. The camera slowly pushes in from a medium shot to a close-up of his weathered face, catching the golden light across his features. Cinematic photorealistic style, warm amber color grading, shallow depth of field, 16:9 aspect ratio.
+```
+
+- **Visual Consistency Notes:** Uses Character Sheet: Kael and Scene Description: Ancient Temple. Lighting must match Segment 2 for continuity.
+
 ---
 
 ## Phase 6 — Stitching Guidance
@@ -806,7 +822,7 @@ Use this template for each distinct location identified in Phase 3. Present all 
 
 ## Segment Prompt
 
-Use this template for each segment prompt generated in Phase 5. Segment 1 is a generation prompt (text-to-video or image-to-video). All subsequent segments are extension prompts. Every prompt must be 100–300 words. Present all prompts in sequential order under a "Segment Prompts" heading.
+Use this template for each segment prompt generated in Phase 5. Segment 1 is a generation prompt (text-to-video or image-to-video). All subsequent segments are extension prompts. Every prompt must be 100–300 words. Always output the prompt text inside a markdown code block (triple backticks) so the user can copy it directly. Present all prompts in sequential order under a "Segment Prompts" heading.
 
 ### Segment Prompts
 
@@ -818,7 +834,9 @@ Use this template for each segment prompt generated in Phase 5. Segment 1 is a g
 - **Camera:** [Camera angle and framing for the opening shot — e.g., "Wide establishing shot, eye level, static" or "Medium shot from waist up, slow push in"]
 - **Prompt (XXX words):**
 
-"[Full 100–300 word prompt. This is the foundation of the entire video. Include: complete scene environment with specific visual details (type of terrain, vegetation, architecture, atmospheric conditions, ambient elements), full character appearance copied verbatim from the Character Sheet Google Flow Prompt Reference, the opening action described with physical specificity (body position, gesture, movement direction and speed), camera angle and framing, lighting quality and direction and color temperature, mood conveyed through visual cues not abstract emotions, art style and color grading descriptors, aspect ratio. Front-load the most important visual elements. Every detail matters — this prompt sets the visual baseline for all extensions.]"
+```
+[Full 100–300 word prompt in raw text. This is the foundation of the entire video. Include: complete scene environment with specific visual details (type of terrain, vegetation, architecture, atmospheric conditions, ambient elements), full character appearance copied verbatim from the Character Sheet Google Flow Prompt Reference, the opening action described with physical specificity (body position, gesture, movement direction and speed), camera angle and framing, lighting quality and direction and color temperature, mood conveyed through visual cues not abstract emotions, art style and color grading descriptors, aspect ratio. Front-load the most important visual elements. Every detail matters — this prompt sets the visual baseline for all extensions.]
+```
 
 - **Visual Consistency Notes:** [List which Character Sheets and Scene Descriptions are referenced. Note: this is the baseline — all extensions inherit from this segment.]
 
@@ -829,13 +847,15 @@ Use this template for each segment prompt generated in Phase 5. Segment 1 is a g
 - **Camera:** [Any camera movement or perspective change in this extension — e.g., "Camera pans right to follow character movement" or "Cut to close-up of character's face"]
 - **Prompt (XXX words):**
 
-"[Full 100–300 word extension prompt. Describe what happens next, building on the previous segment. Include: the new action or event with physical specificity, any camera movement or perspective shift, any new characters entering the frame with their full Character Sheet Google Flow Prompt Reference, any scene or environment changes with the full Scene Description Google Flow Prompt Reference, lighting changes if applicable, continuation cues connecting to the previous segment's ending, the same art style and color grading descriptors from Segment 1. Be vivid and concrete — describe exactly what the viewer should see in this moment.]"
+```
+[Full 100–300 word extension prompt in raw text. Describe what happens next, building on the previous segment. Include: the new action or event with physical specificity, any camera movement or perspective shift, any new characters entering the frame with their full Character Sheet Google Flow Prompt Reference, any scene or environment changes with the full Scene Description Google Flow Prompt Reference, lighting changes if applicable, continuation cues connecting to the previous segment's ending, the same art style and color grading descriptors from Segment 1. Be vivid and concrete — describe exactly what the viewer should see in this moment.]
+```
 
 - **Visual Consistency Notes:** [List which Character Sheets and Scene Descriptions are referenced. Note continuity points with the previous segment.]
 
 ---
 
-*Repeat for each segment. Segment 1 is always GENERATE. All others are always EXTEND. Number segments sequentially across the entire video. Note the word count in parentheses after "Prompt" for each entry.*
+*Repeat for each segment. Segment 1 is always GENERATE. All others are always EXTEND. Number segments sequentially across the entire video. Note the word count in parentheses after "Prompt" for each entry. Always use code blocks for prompt text.*
 
 ---
 
