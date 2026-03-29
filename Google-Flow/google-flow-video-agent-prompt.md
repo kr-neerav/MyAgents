@@ -358,7 +358,7 @@ Guide the user on assembling all generated segments into a cohesive final video,
    - Keep recommendations practical — prioritize tools that are free and easy to learn
 
 4. **Provide audio guidance:**
-   - **Narration** — every video has continuous narration telling the story over the visuals. Write a narration script that covers every sequence, timed to match the segment durations. The narration should flow as one continuous telling of the story from beginning to end, including the closing lesson. Recommend a narration tone that matches the story's mood.
+   - **Narration** — every video has continuous narration in Hindi (हिन्दी) telling the story over the visuals. Write a narration script in Hindi that covers every sequence, timed to match the segment durations. The narration should flow as one continuous telling of the story from beginning to end, including the closing lesson in Hindi. Recommend a narration tone that matches the story's mood.
    - **Music** — every video has background music playing continuously from start to finish. Recommend a single cohesive music track (or a consistent style) that complements the story's emotional arc. The music should be low enough to not compete with narration (10–20% volume) but present throughout. Note where the music should swell, soften, or shift to match narrative beats.
    - **Sound effects** — identify moments where sound effects would enhance the video (footsteps, ambient sounds, impact sounds)
    - Suggest sources for royalty-free audio if appropriate
@@ -927,21 +927,21 @@ Use this structure when compiling the complete Production Guide in Phase 7. The 
 - [ ] Review full assembly for pacing and continuity
 - [ ] Trim or adjust segment durations as needed
 
-### Lesson Text Overlay
-- [ ] Add lesson/moral text overlay to the final segment: "[The story's lesson text]"
-  - Font: [Recommended font style — clean, readable, matching the video's tone]
+### Lesson Text Overlay (Hindi)
+- [ ] Add lesson/moral text overlay in Hindi to the final segment: "[हिन्दी में सीख — The story's lesson in Hindi]"
+  - Font: [Recommended font style supporting Devanagari script — clean, readable, matching the video's tone]
   - Position: [Center screen or lower third]
   - Timing: Fade in over the closing segment's visuals, hold for [X] seconds
   - Note: Google Flow cannot render readable text — this must be added as a text overlay in the editing tool
 
-### Narration
-- [ ] Record or generate narration using the script below
-  - Recommended tone: [narration tone — e.g., warm and reflective, calm and measured]
-  - TTS alternative: [tool suggestion if user prefers text-to-speech]
-- [ ] Narration script:
-  - Segment [#] ([X]s): "[Narration text for this segment — the story as told by the narrator]"
-  - Segment [#] ([X]s): "[Narration text continuing the story]"
-  - *[Repeat for every segment — narration is continuous from start to finish, including the closing lesson]*
+### Narration (Hindi)
+- [ ] Record or generate Hindi narration using the script below
+  - Recommended tone: [narration tone — e.g., गर्मजोशी भरा (warm and reflective), शांत और संयमित (calm and measured)]
+  - TTS alternative: [Hindi-capable tool — e.g., ElevenLabs Hindi voice, Google Cloud TTS Hindi]
+- [ ] Narration script (Hindi):
+  - Segment [#] ([X]s): "[हिन्दी में कथन — Hindi narration text for this segment]"
+  - Segment [#] ([X]s): "[हिन्दी में कथन — Hindi narration continuing the story]"
+  - *[Repeat for every segment — narration is continuous from start to finish, including the closing lesson in Hindi]*
 - [ ] Layer narration track over the video timeline, aligned to segment timings
 - [ ] Verify narration pacing matches visual pacing for each segment
 
@@ -1365,17 +1365,19 @@ Audio transforms a sequence of silent video clips into a cohesive viewing experi
 
 **Narration**
 
-Every video has continuous narration telling the story from beginning to end. The narration is not optional — it is a core part of the video.
+Every video has continuous narration in Hindi (हिन्दी) telling the story from beginning to end. The narration is not optional — it is a core part of the video.
 
-- **Write a full narration script** as part of the Production Guide. The script should:
+- **Write a full narration script in Hindi** as part of the Production Guide. The script should:
+  - Be written entirely in Hindi using Devanagari script (हिन्दी)
   - Tell the complete story as a continuous voiceover, covering every sequence from opening to closing lesson
   - Be timed to match the segment durations — each section of narration should align with its corresponding visual segment
   - Flow naturally as one cohesive telling, not as disconnected captions per segment
-  - Include the story's lesson or moral as the final narration passage, timed to the closing segment
+  - Include the story's lesson or moral as the final narration passage in Hindi, timed to the closing segment
   - Use language that complements the visuals — describe what the viewer is seeing while adding narrative context, emotion, and meaning that the visuals alone cannot convey
-- **Narration tone** should match the story's mood — warm and reflective for emotional stories, energetic and punchy for action-driven stories, calm and measured for informational content, reverent and evocative for mythological or historical stories.
-- Advise the user to record narration separately and layer it over the video in the editing tool, rather than trying to embed it in the Google Flow generation.
-- If the user does not want to record their own voice, suggest text-to-speech tools as an alternative (e.g., ElevenLabs free tier, Google Cloud Text-to-Speech, or the TTS features built into CapCut and DaVinci Resolve).
+  - Use clear, accessible Hindi suitable for a general audience — avoid overly formal or literary Hindi unless the story's tone calls for it
+- **Narration tone** should match the story's mood — warm and reflective (गर्मजोशी भरा) for emotional stories, energetic (ऊर्जावान) for action-driven stories, calm and measured (शांत और संयमित) for informational content, reverent and evocative (श्रद्धापूर्ण) for mythological or historical stories.
+- Advise the user to record narration in Hindi separately and layer it over the video in the editing tool, rather than trying to embed it in the Google Flow generation.
+- If the user does not want to record their own voice, suggest text-to-speech tools that support Hindi as an alternative (e.g., ElevenLabs with Hindi voice, Google Cloud Text-to-Speech with Hindi language, or the TTS features built into CapCut).
 - **Timing guidance:** Narration should be laid down first in the audio timeline. Music and sound effects are mixed around it. The narration track is the primary audio — everything else supports it.
 
 **Music**
@@ -1413,10 +1415,10 @@ Every video has background music playing continuously from start to finish. The 
 Every video ends with the story's lesson or moral presented as a text overlay on the final segment. Since Google Flow cannot render readable text, this must be added in the editing tool during post-production.
 
 **Instructions for the lesson overlay:**
-- **Text content:** The lesson or moral identified during Phase 1 (Story Intake). Present it as a concise, impactful statement — one or two sentences maximum.
+- **Text content:** The lesson or moral identified during Phase 1 (Story Intake), written in Hindi (Devanagari script). Present it as a concise, impactful statement — one or two sentences maximum in Hindi.
 - **Placement:** Overlay the text on the final segment's visuals. The final segment should be designed with reflective, contemplative imagery that complements the lesson (established during Phase 2 Sequence Breakdown).
 - **Position:** Center screen for maximum impact, or lower third if the visuals behind the text are important to see.
-- **Font:** Clean, readable font that matches the video's tone — serif for classical or literary stories, sans-serif for modern or minimalist stories. White text with a subtle drop shadow or semi-transparent dark background ensures readability over any visual.
+- **Font:** Clean, readable font that supports Devanagari script and matches the video's tone — Noto Sans Devanagari or Tiro Devanagari Hindi for a modern look, Noto Serif Devanagari for a classical feel. White text with a subtle drop shadow or semi-transparent dark background ensures readability over any visual.
 - **Timing:** Fade the text in 0.5–1 second after the final segment begins. Hold for at least 4–5 seconds so the viewer can read and absorb it. Fade out with the video's ending.
 - **Audio pairing:** The lesson overlay pairs with the final narration passage reading the lesson aloud. Music should fade to a soft close underneath. The narration of the lesson and the on-screen text should match — the viewer reads and hears the lesson simultaneously.
 
