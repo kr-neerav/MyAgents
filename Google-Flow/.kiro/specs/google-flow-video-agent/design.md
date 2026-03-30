@@ -2,13 +2,13 @@
 
 ## Overview
 
-The Google Flow Video Agent is a prompt-based AI assistant that guides users through transforming stories into 1–2 minute videos using Google Flow. Since Google Flow generates video only a few seconds at a time, the Agent acts as a production planner and creative director — breaking stories into filmable sequences, maintaining visual consistency through character sheets and scene descriptions, selecting the right Google Flow capabilities per segment, writing optimized prompts, and providing stitching guidance.
+The Google Flow Video Agent is a prompt-based AI assistant that guides users through transforming stories into 1–2 minute videos using Google Flow's video extension (extend) capability. Since Google Flow generates video in 8-second clips, the Agent acts as a production planner and creative director — breaking stories into filmable sequences, maintaining visual consistency through character sheets and scene descriptions, and writing optimized prompts for video extension.
 
 The deliverables are:
 1. A core prompt file (`google-flow-video-agent-prompt.md`) containing the Agent's identity, methodology, and interaction patterns
 2. Three platform deployment guides (`platform-kiro.md`, `platform-claude.md`, `platform-gemini.md`)
 
-The Agent is conversational and stateful within a session. It walks users through a structured workflow from story intake to final production guide output, adapting to user feedback at each stage.
+The Agent is conversational and stateful within a session. It walks users through a structured workflow from story intake to prompt generation output, adapting to user feedback at each stage.
 
 ## Architecture
 
@@ -19,18 +19,13 @@ flowchart TD
     A[User provides Story] --> B[Story Analysis & Duration Estimation]
     B --> C[Sequence Breakdown]
     C --> D[Character Sheets & Scene Descriptions]
-    D --> E[Capability Recommendations per Segment]
-    E --> F[Prompt Generation per Segment]
-    F --> G[Stitching Guidance]
-    G --> H[Production Guide Compilation]
+    D --> F[Prompt Generation per Segment]
     
     B -->|Too long/short| B1[Duration Adjustment Recommendations]
     B1 --> B
     C -->|User revision| C
     F -->|User reports issues| F1[Prompt Revision]
     F1 --> F
-    H -->|Component changes| H1[Production Guide Update]
-    H1 --> H
 ```
 
 The architecture consists of three layers:
@@ -42,7 +37,7 @@ The architecture consists of three layers:
 ### Design Decisions
 
 - **Single prompt, no tool use**: The Agent relies entirely on conversational guidance rather than API integrations. This maximizes portability across platforms and keeps the Agent accessible to non-technical users.
-- **Structured phases with flexible navigation**: The workflow follows a logical production order (story → sequences → characters/scenes → prompts → stitching → guide), but users can revisit any phase at any time.
+- **Structured phases with flexible navigation**: The workflow follows a logical production order (story → sequences → characters/scenes → prompts), but users can revisit any phase at any time.
 - **Platform-agnostic core**: The core prompt contains zero platform-specific references. All platform concerns live in separate deployment guides.
 
 ## Components and Interfaces
@@ -62,15 +57,12 @@ Defines the structured workflow phases:
 1. **Story Intake & Analysis**: Accept story, summarize narrative arc, estimate duration, recommend adjustments if outside 1–2 minute target
 2. **Sequence Breakdown**: Decompose story into ordered sequences with timing, narrative purpose, and transition recommendations
 3. **Character & Scene Identification**: Extract characters and locations, produce Character Sheets and Scene Descriptions formatted for Google Flow prompts
-4. **Capability Selection**: Map each segment to Google Flow features (text-to-video, image-to-video, camera controls, style references, video extension)
-5. **Prompt Generation**: Write detailed, optimized prompts for each segment incorporating character/scene consistency references
-6. **Stitching Guidance**: Provide assembly order, transition types, audio recommendations, and tool suggestions
-7. **Production Guide Compilation**: Compile all outputs into a single structured document with checklist format
+4. **Prompt Generation**: Write detailed 200–500 word prompts for each segment using video extension, incorporating character/scene consistency references, Hindi narration text written for 2x speed playback by an invisible narrator, and background music suggestions. Prompts focus on visual content sufficient for 8-second clips and maintain a positive visual tone (negative characters convey negativity through expressions, not scary visuals)
 
 #### Google Flow Knowledge Section
-- Capabilities reference: text-to-video, image-to-video, video extension, camera controls, style references
+- Video extension (extend) capability reference and usage patterns
 - Known limitations and workarounds (text rendering, complex multi-character interactions, action consistency)
-- Prompt optimization patterns for Google Flow
+- Prompt optimization patterns for Google Flow video extension
 - Reference image best practices
 
 #### Output Format Templates
@@ -78,19 +70,17 @@ Defines the structured workflow phases:
 - Character Sheet template
 - Scene Description template
 - Segment Prompt template
-- Production Guide structure with checklist format
 
 #### Interaction Patterns
 - How to handle user feedback and revision requests at each phase
 - How to handle ambiguous or incomplete story input
-- How to handle visual inconsistency reports
 - Session summary and context restoration patterns
 
 ### Component 2: Platform Guide — Kiro CLI (`platform-kiro.md`)
 
 - Deployment via steering file at `.kiro/steering/google-flow-video-agent.md`
 - Terminal output considerations (markdown rendering, long document handling)
-- Limitations: context window management for long production guides, session persistence
+- Limitations: context window management, session persistence
 
 ### Component 3: Platform Guide — Claude (`platform-claude.md`)
 
@@ -116,7 +106,7 @@ Since this is a prompt-based agent with no persistent storage, "data models" her
 ```
 | # | Sequence Description | Duration (s) | Segments | Narrative Purpose | Transition |
 |---|---------------------|--------------|----------|-------------------|------------|
-| 1 | [description]       | [3-5s]       | [1-2]    | [purpose]         | [type]     |
+| 1 | [description]       | [8s]         | [1-2]    | [purpose]         | [type]     |
 ```
 
 ### Character Sheet
@@ -148,35 +138,11 @@ Since this is a prompt-based agent with no persistent storage, "data models" her
 ### Segment Prompt
 ```
 **Segment [#] — Sequence [#]**
-- Google Flow Capability: [text-to-video | image-to-video | etc.]
-- Camera: [angle, movement, controls]
+- Google Flow Capability: video extension
 - Reference Image: [yes/no, description if yes]
-- Prompt: "[full optimized prompt text incorporating character/scene references]"
-- Visual Consistency Notes: [specific references to Character Sheets and Scene Descriptions]
-```
-
-### Production Guide Structure
-```
-# Production Guide: [Story Title]
-
-## Pre-Production
-- [ ] Character Sheets (review and approve)
-- [ ] Scene Descriptions (review and approve)
-- [ ] Reference Images (generate or source)
-
-## Production (Segment-by-Segment)
-- [ ] Segment 1: [brief description] — Est. [X] min
-  - Prompt: [...]
-  - Capability: [...]
-- [ ] Segment 2: ...
-
-## Post-Production
-- [ ] Stitch segments in order
-- [ ] Apply transitions
-- [ ] Add audio (narration/music/SFX)
-- [ ] Final review and export
-
-## Estimated Total Effort: [X] hours
+- Prompt (200–500 words): "[detailed visual content description focusing on scene, characters, actions, lighting, and style — sufficient for an 8-second video clip. Negative characters convey negativity through expressions and body language, not through frightening visuals.]"
+- Narration (Hindi, 2x speed): [Hindi text spoken by an invisible narrator for this segment, written for 2x speed playback]
+- Background Music: "[music style/mood suggestion appropriate to the segment's emotional tone]"
 ```
 
 ## Correctness Properties
@@ -193,7 +159,7 @@ Since this is a prompt-based AI agent (not traditional software with determinist
 
 ### Property 2: Sequence Duration Constraints
 
-*For any* sequence in a Sequence Breakdown, the estimated duration SHALL fall within Google Flow's achievable clip length range, and any sequence whose narrative requires more time than a single segment allows SHALL be subdivided into multiple segments.
+*For any* sequence in a Sequence Breakdown, the estimated duration SHALL be a multiple of 8 seconds (the Google Flow Segment length), and any sequence whose narrative requires more time than a single 8-second segment allows SHALL be subdivided into multiple segments.
 
 **Validates: Requirements 2.2, 2.3**
 
@@ -209,35 +175,23 @@ Since this is a prompt-based AI agent (not traditional software with determinist
 
 **Validates: Requirements 4.1, 4.2, 4.3**
 
-### Property 5: Capability Recommendation Completeness
+### Property 5: Prompt Structural Completeness
 
-*For any* segment in a Sequence Breakdown, a Google Flow capability recommendation SHALL exist drawn from the valid set (text-to-video, image-to-video, video extension, camera controls, style references), accompanied by a rationale. For any segment requiring camera movement, specific camera control parameters SHALL be included.
+*For any* segment in a Sequence Breakdown, a corresponding Prompt SHALL exist that includes visual content description (scene setting, character actions, lighting, style), narration text, and a background music suggestion. Each Prompt SHALL be between 200 and 500 words in length. Prompts SHALL be numbered sequentially and cross-referenced to their source sequence. Negative characters SHALL be depicted with expressive (not frightening) visual descriptions. Narration text SHALL be in Hindi and authored for 2x speed playback.
 
-**Validates: Requirements 5.1, 5.2, 5.3**
+**Validates: Requirements 5.1, 5.2, 5.4, 5.5, 5.6, 5.7, 5.9**
 
-### Property 6: Prompt Structural Completeness
-
-*For any* segment in a Sequence Breakdown, a corresponding Prompt SHALL exist that includes scene setting, character actions, camera angle, movement direction, lighting, and style descriptors. Prompts SHALL be numbered sequentially and cross-referenced to their source sequence.
-
-**Validates: Requirements 6.1, 6.2, 6.5**
-
-### Property 7: Visual Consistency Across Prompts
+### Property 6: Visual Consistency Across Prompts
 
 *For any* two prompts that reference the same character or location, the visual descriptors for that shared element SHALL be identical. Each prompt SHALL incorporate the relevant Character Sheet and Scene Description details to maintain visual consistency.
 
-**Validates: Requirements 6.3, 9.1, 9.2**
+**Validates: Requirements 5.3**
 
-### Property 8: Production Guide Completeness
-
-*For any* Production Guide output, it SHALL contain all required sections (Sequence Breakdown, Character Sheets, Scene Descriptions, Prompts, capability recommendations, stitching guidance) organized in chronological production order (pre-production, production, post-production), with estimated time-of-effort for each step and stitching guidance including segment order, transition types, and timing adjustments.
-
-**Validates: Requirements 7.1, 8.1, 8.2, 8.5**
-
-### Property 9: Core Prompt Platform Agnosticism
+### Property 7: Core Prompt Platform Agnosticism
 
 *For any* text in the core prompt file (`google-flow-video-agent-prompt.md`), it SHALL contain no references to specific deployment platforms (Kiro, Claude, Gemini, or any other platform names).
 
-**Validates: Requirements 10.5**
+**Validates: Requirements 6.5**
 
 ## Error Handling
 
@@ -250,17 +204,15 @@ Since this is a prompt-based agent, "error handling" refers to how the Agent res
 - **Ambiguous characters/locations**: Agent asks the user to clarify before generating Character Sheets or Scene Descriptions
 
 ### Generation Issues
-- **Segment doesn't match expectations**: Agent suggests specific prompt revisions addressing the user's identified issues (Req 6.4)
-- **Visual inconsistencies between segments**: Agent diagnoses likely cause (prompt wording, missing reference image, style drift) and suggests corrections (Req 9.4)
-- **Pacing/continuity issues in stitched video**: Agent suggests segment re-generations, trim adjustments, or transition changes (Req 7.3)
+- **Segment doesn't match expectations**: Agent suggests specific prompt revisions addressing the user's identified issues (Req 5.4)
 
 ### Revision Handling
-- **User requests changes to any component**: Agent revises the specific component and cascades updates to all dependent outputs (Req 2.5, 8.4)
+- **User requests changes to any component**: Agent revises the specific component and cascades updates to all dependent outputs (Req 2.5)
 - **User provides reference images or visual preferences mid-session**: Agent incorporates into relevant Character Sheets or Scene Descriptions (Req 3.5, 4.5)
 
 ### Google Flow Limitations
-- **Known capability limitations**: Agent proactively notes limitations (text rendering, complex multi-character interactions) and suggests workarounds (Req 5.5)
-- **Segment exceeds clip length**: Agent automatically subdivides into multiple segments with visual continuity guidance (Req 2.3)
+- **Known capability limitations**: Agent proactively notes video extension limitations (text rendering, complex multi-character interactions) and suggests workarounds
+- **Segment exceeds clip length**: Agent automatically subdivides into multiple 8-second segments with visual continuity guidance (Req 2.3)
 
 ## Testing Strategy
 
@@ -273,14 +225,12 @@ Testing for a prompt-based agent differs from traditional software testing. The 
 
 ### Unit / Example Tests
 
-- **Deliverable existence**: Verify that all four deliverable files exist (`google-flow-video-agent-prompt.md`, `platform-kiro.md`, `platform-claude.md`, `platform-gemini.md`) — validates Req 10.1–10.4
-- **Platform guide structure**: Each platform guide contains setup instructions and a limitations section — validates Req 10.6
-- **Checklist format**: Production Guide output contains checklist markers (`- [ ]`) — validates Req 8.3
-- **Tool recommendations**: Stitching guidance includes video editing tool recommendations — validates Req 7.2
-- **Audio guidance**: Stitching guidance includes audio element recommendations — validates Req 7.4
-- **Technical specs**: Output includes recommended format, resolution, and aspect ratio — validates Req 7.5
-- **Style recommendations**: Output includes art style, color grading, and aspect ratio recommendations — validates Req 9.3
-- **Reference image recommendations**: Output recommends generating reference images for major characters and scenes — validates Req 9.5
+- **Deliverable existence**: Verify that all four deliverable files exist (`google-flow-video-agent-prompt.md`, `platform-kiro.md`, `platform-claude.md`, `platform-gemini.md`) — validates Req 6.1–6.4
+- **Platform guide structure**: Each platform guide contains setup instructions and a limitations section — validates Req 6.6
+- **Prompt narration**: Each Segment Prompt includes Hindi narration text written for 2x speed playback by an invisible narrator — validates Req 5.4
+- **Prompt background music**: Each Segment Prompt includes a background music suggestion — validates Req 5.5
+- **Prompt word count**: Each Segment Prompt is between 200 and 500 words — validates Req 5.6
+- **Prompt visual tone**: Negative characters in Prompts use expressive (not frightening) visual descriptions — validates Req 5.7
 
 ### Property-Based Tests
 
@@ -291,7 +241,7 @@ Each property test should run a minimum of 100 iterations with randomized inputs
 - **Property 1 test**: Generate random sequence breakdowns and validate each entry contains description, duration, narrative purpose, and transition type.
   Tag: `Feature: google-flow-video-agent, Property 1: Sequence Breakdown Structural Completeness`
 
-- **Property 2 test**: Generate random sequences with varying durations and validate all fall within Google Flow limits, with subdivision for longer sequences.
+- **Property 2 test**: Generate random sequences with varying durations and validate all are multiples of 8 seconds within Google Flow's 8-second segment length, with subdivision for longer sequences.
   Tag: `Feature: google-flow-video-agent, Property 2: Sequence Duration Constraints`
 
 - **Property 3 test**: Generate random character sets across random sequences and validate each has a complete Character Sheet with all required fields.
@@ -300,20 +250,14 @@ Each property test should run a minimum of 100 iterations with randomized inputs
 - **Property 4 test**: Generate random location sets across random sequences and validate each has a complete Scene Description with all required fields.
   Tag: `Feature: google-flow-video-agent, Property 4: Scene Description Completeness`
 
-- **Property 5 test**: Generate random segments and validate each has a capability recommendation from the valid set with rationale, plus camera parameters when movement is specified.
-  Tag: `Feature: google-flow-video-agent, Property 5: Capability Recommendation Completeness`
+- **Property 5 test**: Generate random segment sets and validate each has a corresponding prompt with all required fields (visual content, narration, background music), word count between 200–500, sequential numbering, sequence cross-references, and positive visual tone for negative characters.
+  Tag: `Feature: google-flow-video-agent, Property 5: Prompt Structural Completeness`
 
-- **Property 6 test**: Generate random segment sets and validate each has a corresponding prompt with all required fields, sequential numbering, and sequence cross-references.
-  Tag: `Feature: google-flow-video-agent, Property 6: Prompt Structural Completeness`
+- **Property 6 test**: Generate random prompt sets with shared characters/locations and validate that visual descriptors for shared elements are identical across prompts.
+  Tag: `Feature: google-flow-video-agent, Property 6: Visual Consistency Across Prompts`
 
-- **Property 7 test**: Generate random prompt sets with shared characters/locations and validate that visual descriptors for shared elements are identical across prompts.
-  Tag: `Feature: google-flow-video-agent, Property 7: Visual Consistency Across Prompts`
-
-- **Property 8 test**: Generate random production guides and validate they contain all required sections in chronological order with time estimates and stitching guidance.
-  Tag: `Feature: google-flow-video-agent, Property 8: Production Guide Completeness`
-
-- **Property 9 test**: Scan the core prompt file text for any platform-specific references and validate none exist.
-  Tag: `Feature: google-flow-video-agent, Property 9: Core Prompt Platform Agnosticism`
+- **Property 7 test**: Scan the core prompt file text for any platform-specific references and validate none exist.
+  Tag: `Feature: google-flow-video-agent, Property 7: Core Prompt Platform Agnosticism`
 
 ### Testing Notes
 
