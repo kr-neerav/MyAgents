@@ -83,10 +83,9 @@ Accept the user's story, understand the narrative, and confirm it fits the 1–2
    - The lesson or moral of the story — every story includes a lesson, and this will be presented as the closing segment of the video
    - Estimated video duration based on the narrative density and pacing
 
-3. **Estimate duration.** Provide a rough duration estimate in seconds. Use these guidelines:
-   - A single clear action or moment: 3–5 seconds per segment
-   - A scene with dialogue or complex action: 5–8 seconds across multiple segments
-   - Transitions and establishing shots: 2–4 seconds each
+3. **Estimate duration.** Provide a rough duration estimate in seconds. Each segment should target the maximum duration Google Flow can generate (8 seconds). Use these guidelines:
+   - Every segment should aim for the full 8-second maximum generation length — do not plan for shorter clips when longer ones are possible
+   - Plan fewer, longer segments rather than many short ones — this reduces the number of extensions needed and improves visual continuity
    - Target total: 60–120 seconds (1–2 minutes)
 
 4. **Present the summary to the user** and ask them to confirm or correct your understanding before proceeding.
@@ -144,8 +143,8 @@ Decompose the confirmed story into an ordered list of filmable sequences, each w
    - **Narrative purpose** — why this sequence exists in the story (establishes setting, introduces character, builds tension, climax, resolution, etc.)
    - **Transition to next sequence** — recommended transition type (cut, fade, dissolve, continuous motion, match cut) with reasoning based on the narrative flow
 
-3. **Respect Google Flow's clip length limits.** Each individual segment should target a few seconds of video. When a sequence requires more screen time than a single segment allows:
-   - Subdivide the sequence into multiple segments
+3. **Maximize each segment's duration.** Every segment should target the maximum 8-second generation length that Google Flow supports. Write prompts with enough action and visual detail to fill the full 8 seconds — do not write prompts for short 2–3 second clips when a longer generation is possible. When a sequence requires more screen time than one 8-second segment:
+   - Subdivide the sequence into multiple 8-second segments
    - Provide guidance on how the segments connect visually (continuous motion, matching end/start frames, consistent camera angle)
    - Note which segments within a sequence should use video extension versus separate generation
 
@@ -264,9 +263,13 @@ An extension chain plan showing: Segment 1 generation method, and for each subse
 ### Purpose
 Write richly detailed, 100–300 word prompts for each segment — the first segment as a generation prompt, and all subsequent segments as extension prompts. Each prompt must be vivid and specific enough that Google Flow produces exactly the visual moment the story requires.
 
-### Prompt Length Requirement
+### Prompt Length and Detail Requirement
 
 Every prompt you write MUST be between 100 and 300 words. This is non-negotiable. Short, vague prompts produce generic, uncontrolled results. Detailed prompts give Google Flow the specificity it needs to generate exactly what the story demands.
+
+**Maximize segment duration.** Each prompt should describe enough continuous action, movement, and visual detail to fill the full 8-second maximum generation length. Include slow, deliberate actions, environmental details unfolding over time, camera movements that take time to complete, and atmospheric elements that evolve. The more visual content you pack into the prompt, the longer and richer the generated segment will be. Never write a prompt that describes only a single instant — always describe a progression of action that unfolds over the full duration.
+
+**Be richly descriptive in narration and content.** The Hindi narration embedded in each prompt should not be a bare summary — it should be vivid, evocative storytelling. Describe sensory details, emotional undertones, and the significance of what is happening. The narration should paint a picture with words that complements and enriches the visual content, not merely caption it.
 
 A 100–300 word prompt has room to describe:
 - The full scene environment with specific visual details (not just "a forest" but the type of trees, the quality of light filtering through the canopy, the ground cover, the atmosphere)
@@ -317,16 +320,21 @@ A 100–300 word prompt has room to describe:
 ### What Makes a Good 100–300 Word Prompt
 
 **Good prompt characteristics:**
+- Describes a progression of action that unfolds over the full 8 seconds — not a single frozen moment but a continuous sequence (character walks, pauses, looks up, reaches out)
 - Specific physical descriptions instead of abstract concepts ("her weathered hands grip the rough oak staff, knuckles white" not "she holds her staff tightly")
-- Concrete environmental details ("morning fog clings to the mossy ground between gnarled oak roots, shafts of pale gold sunlight break through the canopy above" not "a misty forest")
-- Explicit motion and action descriptions ("she steps forward with her left foot, her cloak swaying behind her, the lantern in her right hand casting warm amber light across the stone path" not "she walks forward")
-- Camera language ("medium shot from waist up, camera slowly tracking right to follow her movement" not just "following shot")
-- Sensory atmosphere conveyed visually ("rain streaks across the window glass, blurring the city lights into soft orange and white bokeh" not "it is raining outside")
+- Concrete environmental details that evolve over time ("morning fog clings to the mossy ground between gnarled oak roots, shafts of pale gold sunlight break through the canopy above, a gentle breeze stirs the leaves" not "a misty forest")
+- Explicit motion and action descriptions with direction and speed ("she steps forward with her left foot, her cloak swaying behind her, the lantern in her right hand casting warm amber light across the stone path as she moves deeper into the corridor" not "she walks forward")
+- Camera language with movement that takes time ("medium shot from waist up, camera slowly tracking right to follow her movement, gradually widening to reveal the full chamber" not just "following shot")
+- Sensory atmosphere conveyed visually ("rain streaks across the window glass, blurring the city lights into soft orange and white bokeh, droplets pooling on the stone ledge below" not "it is raining outside")
+- Rich, evocative Hindi narration that tells the story with emotional depth and sensory detail — not bare plot summary but vivid storytelling that draws the listener in
+- Background music note that specifies mood dynamics for this moment
 
 **Bad prompt characteristics:**
+- Describes only a single instant with no progression (wastes generation capacity — the segment will be short or static)
 - Vague or generic descriptions ("a beautiful landscape," "an epic battle")
 - Abstract emotions without visual cues ("she feels sad," "the mood is tense")
 - Too many simultaneous actions in one prompt
+- Bare, summary-style narration ("The warrior entered the temple" instead of richly descriptive storytelling)
 - Missing character or scene descriptors that were established in Character Sheets or Scene Descriptions
 
 ### Handling Prompt Revision Requests
@@ -351,7 +359,7 @@ Example:
 - **Prompt (187 words):**
 
 ```
-Continuing the forward motion, the warrior steps through the crumbling stone archway into the temple interior. Shafts of pale golden sunlight pierce through cracks in the vaulted ceiling above, illuminating swirling dust particles that drift lazily through the still air. The warrior — tall, broad-shouldered man with a shaved head and deep brown skin, wearing battered iron armor with a torn red cloak draped over his left shoulder, a long scar running from his right temple to his jawline — pauses mid-step, his heavy boots settling on the moss-covered stone floor. He tilts his head upward, eyes narrowing as he surveys the towering pillars ahead, each one wrapped in creeping vines and cracked with age. The camera slowly pushes in from a medium shot to a close-up of his weathered face, catching the golden light across his features. An invisible narrator continues in Hindi: "योद्धा ने प्राचीन मंदिर में कदम रखा। सूर्य की किरणें टूटी छत से छनकर अंदर आ रही थीं, जैसे देवता उसका स्वागत कर रहे हों।" Soft orchestral background music continues, swelling gently as the warrior surveys the temple. Cinematic photorealistic style, warm amber color grading, shallow depth of field, 16:9 aspect ratio.
+Continuing the forward motion, the warrior steps through the crumbling stone archway into the temple interior, his heavy iron boots crunching on fragments of ancient tile scattered across the threshold. Shafts of pale golden sunlight pierce through jagged cracks in the vaulted ceiling high above, illuminating swirling columns of dust particles that drift lazily through the vast, silent space. The warrior — tall, broad-shouldered man with a shaved head and deep brown skin, wearing battered iron armor with dents and scratches from countless battles, a torn red cloak draped over his left shoulder trailing behind him, a long scar running from his right temple to his jawline — pauses mid-step, his weight shifting as his right hand instinctively moves to the hilt of the sword at his hip. He tilts his head slowly upward, eyes narrowing as he surveys the towering stone pillars ahead, each one wrapped in thick creeping vines and cracked with centuries of age, their surfaces mottled with patches of green and gold moss. A faint breeze stirs the dust around his feet. The camera slowly pushes in from a medium shot to a close-up of his weathered face, catching the golden light playing across his features as his expression shifts from caution to quiet awe. An invisible narrator speaks in Hindi: "योद्धा ने प्राचीन मंदिर की दहलीज़ पार की। सदियों से बंद इन दीवारों के भीतर सन्नाटा पसरा था, मगर सूर्य की किरणें टूटी छत से छनकर अंदर आ रही थीं — मानो देवता स्वयं उसका मार्गदर्शन कर रहे हों। उसकी आँखों में भय नहीं, बल्कि एक गहरी श्रद्धा थी, जैसे वह किसी पवित्र भूमि पर कदम रख रहा हो।" Soft orchestral background music swells gently with deep cello and ambient strings, building a sense of reverence and ancient mystery. Cinematic photorealistic style, warm amber color grading, shallow depth of field, 16:9 aspect ratio.
 ```
 
 - **Visual Consistency Notes:** Uses Character Sheet: Kael and Scene Description: Ancient Temple. Lighting must match Segment 2 for continuity.
@@ -591,13 +599,14 @@ Google Flow is powerful but has specific limitations. When these affect a segmen
 
 ### Duration Control
 
-**Limitation:** The exact duration of a generated clip is not precisely controllable. A prompt targeting 5 seconds may produce 3–6 seconds of usable video.
+**Limitation:** The exact duration of a generated clip is not precisely controllable. Google Flow can generate up to approximately 8 seconds per clip, but the actual output may vary.
 
-**Workarounds:**
-- Plan for slight duration variability in each segment — the Sequence Breakdown should have flexible timing
-- Use video extension to add duration to clips that come out too short
+**Maximizing duration:**
+- Write prompts that describe a continuous progression of action filling the full 8 seconds — include slow movements, environmental details unfolding, camera movements that take time to complete
+- Include multiple sequential micro-actions within one prompt (character walks, pauses, looks around, reaches forward) to give Google Flow enough content to fill the maximum duration
+- Avoid prompts that describe only a single instant — these tend to produce shorter clips
+- Use video extension to add duration to clips that come out shorter than expected
 - Trim clips that come out too long during the stitching phase
-- Generate a segment twice if the first attempt is significantly off-target in duration
 
 ### Aspect Ratio and Resolution
 
