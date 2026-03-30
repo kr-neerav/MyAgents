@@ -1,6 +1,6 @@
-# Google Flow Video Agent — Gemini Setup Guide
+# Google Flow Video Agent — Gemini Platform Setup Guide
 
-This guide walks you through deploying the Google Flow Video Agent on Google Gemini. The core prompt lives in `google-flow-video-agent-prompt.md` — this file only covers platform-specific setup.
+This guide covers deploying the Google Flow Video Agent on Google Gemini. The core prompt lives in `google-flow-video-agent-prompt.md` — this file only covers platform-specific setup.
 
 ## Setup Options
 
@@ -13,7 +13,7 @@ This guide walks you through deploying the Google Flow Video Agent on Google Gem
 5. Save your changes.
 6. Start a new chat — the Google Flow Video Agent persona is now active for all conversations.
 
-> **Note:** Gemini imposes a character limit on custom instructions. The full core prompt may exceed this limit. If it does, use the Gems approach (Option B) instead, or condense the prompt by removing the Output Format Templates section and asking the Agent to produce formats on demand during conversation.
+> **Note:** Gemini imposes a character limit on custom instructions. The full core prompt may exceed this limit. If it does, use the Gems approach (Option B) instead, or condense the prompt by removing the Output Format Templates section and asking the Agent to reproduce formats on demand during conversation.
 
 > To disable, return to Settings and clear the custom instructions field.
 
@@ -34,16 +34,16 @@ This guide walks you through deploying the Google Flow Video Agent on Google Gem
 ### Formatting Support
 
 - Gemini renders standard markdown well: headers, bold, italic, numbered lists, bullet lists, and fenced code blocks all display correctly.
-- The Agent produces structured tables (Sequence Breakdowns, Character Sheets, Scene Descriptions). Gemini handles markdown tables, though very wide tables may not render perfectly. If a table is hard to read, ask the Agent to switch to a list-based format for that section.
-- The Production Guide is a long, structured document. Gemini handles long outputs reasonably well, but for the best experience, request it in sections (e.g., "Show me the Pre-Production section" then "Now show the Production section") rather than all at once.
-- Prompt templates for Google Flow segments can be copied directly from Gemini's output into Google Flow.
+- The Agent produces structured tables for Sequence Breakdowns, Character Sheets, and Scene Descriptions. Gemini handles markdown tables, though very wide tables may not render perfectly. If a table is hard to read, ask the Agent to switch to a list-based format for that section.
+- Segment prompts (200–500 words each) and full production plans can be long documents. For the best experience, request output in sections (e.g., "Show me the Sequence Breakdown" then "Now show the Character Sheets") rather than all at once.
+- Prompt text for Google Flow segments can be copied directly from Gemini's output and pasted into Google Flow.
 
-### Limitations
+### Known Limitations
 
-- **Custom Instructions length limits**: Gemini's Custom Instructions field has a character cap. The full core prompt — which includes Identity, Methodology, Google Flow Knowledge, Output Format Templates, Interaction Patterns, Visual Consistency, and Stitching Guidance sections — may exceed this limit. If it does, use the Gems approach, which supports longer instructions. As a fallback, you can condense the prompt by removing the Output Format Templates section (the Agent can reproduce these formats on request during conversation).
-- **Context window management**: The full Production Guide — including Sequence Breakdowns, Character Sheets, Scene Descriptions, all segment prompts, and stitching guidance — can be substantial for longer stories. Combined with the conversation history from the planning phases, this may approach Gemini's context limits. If responses start losing detail or referencing earlier decisions incorrectly, ask the Agent for a session summary and start a new chat with that summary to restore context.
+- **Custom instructions length limits**: Gemini's Custom Instructions field has a character cap. The full core prompt — which includes Identity, Methodology, Google Flow Knowledge, Output Format Templates, and Interaction Patterns sections — may exceed this limit. If it does, use the Gems approach, which supports longer instructions. As a fallback, you can condense the prompt by removing the Output Format Templates section (the Agent can reproduce these formats on request during conversation).
+- **Context window**: A full production plan — Sequence Breakdowns, Character Sheets, Scene Descriptions, and all segment prompts — can be substantial for longer stories. Combined with the conversation history from earlier workflow phases, this may approach Gemini's context limits. If responses start losing detail or referencing earlier decisions incorrectly, ask the Agent for a session summary and start a new chat with that summary to restore context.
 - **Session persistence**: Gemini conversations persist within a single chat thread, but context may degrade over very long sessions as the conversation grows. Each new chat starts fresh with no memory of previous sessions. Before ending a session or if you notice quality degradation, ask the Agent to produce a session summary capturing the current state of your production plan. Paste this summary at the start of your next chat to pick up where you left off.
 
-### What This Wrapper Does NOT Do
+### What This Guide Does NOT Do
 
 This setup guide does not modify the Google Flow Video Agent's production methodology, persona, workflow phases, or interaction patterns. All agent logic lives in the core prompt (`google-flow-video-agent-prompt.md`). This file only provides deployment instructions for the Gemini platform.
