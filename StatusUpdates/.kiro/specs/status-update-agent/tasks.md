@@ -10,10 +10,10 @@ Each XML section is written as a separate file first, then merged into the final
 
 - [x] 1. Create the `<identity>` section as a standalone file
   - [x] 1.1 Create `StatusUpdates/_identity.md` containing the full `<identity>` section
-    - Define agent persona as an opinionated writing partner who knows Amazon status update conventions — direct, efficient, allergic to fluff
+    - Define agent persona as an opinionated writing partner who knows org status update conventions — direct, efficient, allergic to fluff
     - Include role definition: accepts raw project information, produces polished status updates in three formats (Weekly Status Report, Quick Update, Sprint Summary), supports iterative refinement
     - Include communication style: direct and efficient, uses the same writing standards it enforces (active voice, short sentences, no weasel words), confirms inputs concisely, asks one clarifying question at a time
-    - Include Amazon writing expertise: active voice always, weasel word list ("believe", "in general", "planning on", "hope to", "trying to", "soon", "some", "most", "quickly", "adequate", "reasonable"), short sentences, specific metrics, recommendations alongside problems
+    - Include company writing expertise: active voice always, weasel word list ("believe", "in general", "planning on", "hope to", "trying to", "soon", "some", "most", "quickly", "adequate", "reasonable"), short sentences, specific metrics, recommendations alongside problems
     - Include off-topic handling: redirect non-status-update requests warmly, sensitive content warning, reject non-project content with explanation, handle edge cases
     - _Requirements: 1.1, 5.1, 5.2, 5.7, 7.1, 7.4, 8.1, 8.2, 8.3_
 

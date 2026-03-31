@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Status Update Agent is a system prompt agent that helps senior data engineers and tech leads produce polished status updates following Amazon writing guidelines. The agent accepts raw project information (accomplishments, blockers, risks, upcoming work) and produces one of three update types: Weekly Status Reports (Kurt Kufeld VP format), Quick Updates (2-5 sentences for Slack/email), and Sprint Summaries. The agent enforces Amazon writing standards — active voice, no weasel words, short sentences, specific metrics, recommendations alongside problems — and adapts output framing based on audience type (executive, technical, cross-functional).
+The Status Update Agent is a system prompt agent that helps senior data engineers and tech leads produce polished status updates following company writing guidelines. The agent accepts raw project information (accomplishments, blockers, risks, upcoming work) and produces one of three update types: Weekly Status Reports (Kurt Kufeld VP format), Quick Updates (2-5 sentences for Slack/email), and Sprint Summaries. The agent enforces company writing standards — active voice, no weasel words, short sentences, specific metrics, recommendations alongside problems — and adapts output framing based on audience type (executive, technical, cross-functional).
 
 The deliverable is a set of files following the workspace's established agent structure:
 - `status-update-agent-prompt.md` — the core prompt containing all agent behavior
@@ -22,7 +22,7 @@ The Status Update Agent prompt follows a layered prompt architecture consistent 
 
 ```mermaid
 graph TD
-    A["&lt;identity&gt;<br/>Who the agent is, role, communication style,<br/>Amazon writing expertise, off-topic handling"] --> B["&lt;methodology&gt;<br/>Input processing flow, update generation methods<br/>for each type, writing standards enforcement,<br/>audience adaptation, iterative refinement"]
+    A["&lt;identity&gt;<br/>Who the agent is, role, communication style,<br/>company writing expertise, off-topic handling"] --> B["&lt;methodology&gt;<br/>Input processing flow, update generation methods<br/>for each type, writing standards enforcement,<br/>audience adaptation, iterative refinement"]
     B --> C["&lt;output_formatting&gt;<br/>Weekly report template, quick update template,<br/>sprint summary template, writing standards checklist"]
     C --> D["&lt;interaction_patterns&gt;<br/>Follow-up conversation types,<br/>refinement workflows, session management"]
 ```
@@ -53,13 +53,13 @@ Each platform file references `status-update-agent-prompt.md` as the core prompt
 
 ### Component 1: `<identity>` Section
 
-**Purpose:** Establishes who the agent is, its role, communication style, Amazon writing expertise, and boundaries.
+**Purpose:** Establishes who the agent is, its role, communication style, company writing expertise, and boundaries.
 
 **Contents:**
-- **Agent persona** — An opinionated writing partner who knows Amazon status update conventions inside and out. Not a generic text generator — a colleague who has written hundreds of status updates and knows what leadership actually reads. Direct, efficient, allergic to fluff.
+- **Agent persona** — An opinionated writing partner who knows org status update conventions inside and out. Not a generic text generator — a colleague who has written hundreds of status updates and knows what leadership actually reads. Direct, efficient, allergic to fluff.
 - **Role definition** — Accepts raw project information, produces polished status updates in one of three formats, supports iterative refinement. Scoped exclusively to status update generation and review.
 - **Communication style** — Direct and efficient. Uses the same writing standards it enforces: active voice, short sentences, no weasel words. Confirms inputs concisely before generating. Asks one clarifying question at a time when information is missing.
-- **Amazon writing expertise** — Deep knowledge of Amazon writing guidelines: active voice always, eliminate weasel words ("believe", "in general", "planning on", "hope to", "trying to", "soon", "some", "most", "quickly"), short sentences with one idea each, specific quantities/dates/metrics, recommendations alongside problems, executive summary as the most important section.
+- **Company writing expertise** — Deep knowledge of company writing guidelines: active voice always, eliminate weasel words ("believe", "in general", "planning on", "hope to", "trying to", "soon", "some", "most", "quickly"), short sentences with one idea each, specific quantities/dates/metrics, recommendations alongside problems, executive summary as the most important section.
 - **Off-topic handling** — Redirects non-status-update requests warmly. Handles sensitive content warnings. Rejects non-project content with explanation. Maps to Requirements 8.1–8.3.
 
 **Interface with other sections:** Identity sets the voice, writing standards expertise, and boundaries that methodology, output formatting, and interaction patterns operate within.
@@ -327,7 +327,7 @@ Since the Status Update Agent is a system prompt agent (not a software applicati
 
 ### Property 9: Writing standards completeness
 
-*For any* generated status update, the prompt must contain explicit enforcement instructions for all five Amazon writing standards: (1) active voice, (2) weasel word elimination with the specific word list, (3) short sentences with one idea each, (4) specific quantities/dates/metrics instead of vague terms, and (5) recommendations alongside every problem.
+*For any* generated status update, the prompt must contain explicit enforcement instructions for all five company writing standards: (1) active voice, (2) weasel word elimination with the specific word list, (3) short sentences with one idea each, (4) specific quantities/dates/metrics instead of vague terms, and (5) recommendations alongside every problem.
 
 **Validates: Requirements 5.1, 5.2, 5.3, 5.5, 5.6**
 
