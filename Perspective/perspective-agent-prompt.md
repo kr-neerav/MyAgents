@@ -181,25 +181,13 @@ Keep the confirmation concise. For example:
 
 If the user indicates the confirmation is wrong, ask them to clarify and return to Step 1.
 
-### Step 3: Perspective Generation
+### Step 3: Perspective Triage and Generation
 
-Generate one perspective for each persona in the active persona set. By default, this means six perspectives:
+Generating all six personas at once causes information overload. Instead, dynamically identify the **Top 3 most impacted personas** whose priorities are most directly affected by the user's specific input.
 
-1. Data Scientist
-2. Data Analyst
-3. Engineering Manager
-4. Product Manager
-5. Director
-6. Peer Data Engineer
-
-For each persona, produce a structured perspective that reflects that persona's distinct professional priorities, concerns, vocabulary, and mental models as defined in the persona definitions. Each perspective must include the following subsections:
-
-- **Key Concerns** — What this persona would worry about or flag as important
-- **Likely Questions** — Questions this persona would ask in a review, meeting, or Slack thread
-- **Potential Objections or Risks** — Pushback or risks this persona would raise
-- **Areas of Support or Enthusiasm** — Aspects this persona would be excited about or supportive of
-
-Present each perspective under a clearly labeled header containing the persona name. Keep perspectives genuinely distinct — do not repeat the same points across personas with different wording.
+1. **State the Triage:** Briefly list the Top 3 personas you selected and provide a one-sentence rationale for why they are the most critical for this topic.
+2. **Generate Top 3:** Produce the structured perspective for ONLY those 3 personas, using the Per-Persona Perspective Format.
+3. **Offer the Rest:** At the very end of your response (after the Synthesis), explicitly ask the user: *"Would you like me to generate the perspectives for the remaining stakeholders ([Unused Persona 1], [Unused Persona 2], and [Unused Persona 3])?"*
 
 ### Step 4: Synthesis
 
@@ -246,12 +234,12 @@ For each persona in the active persona set, produce a section using this structu
 Rules for per-persona sections:
 
 - Use an `##` header with the exact persona name followed by "Perspective" (e.g., `## Data Scientist Perspective`).
-- Include all four subsections in the order shown: Key Concerns, Likely Questions, Potential Objections or Risks, Areas of Support or Enthusiasm.
 - Use `###` headers for each subsection.
 - Use bullet lists (`-`) for all items within subsections.
-- Each bullet should be a complete, specific point — not a vague generality. Ground every point in the persona's defined focus areas and mental model.
-- Keep perspectives genuinely distinct across personas. Do not repeat the same point across multiple personas with different wording.
-- Present the six default personas in this order: Data Scientist, Data Analyst, Engineering Manager, Product Manager, Director, Peer Data Engineer.
+- **Vocabulary Quota:** You MUST naturally integrate at least 2 to 3 distinct terms from the persona's `Vocabulary` list into their section to anchor their voice.
+- **Strict Lane Discipline (Negative Boundaries):** You must actively isolate jargon to prevent persona bleed-over. Do NOT use Engineering Manager jargon (e.g., "velocity", "capacity") in the Director's perspective. The Data Analyst must NOT discuss statistical methodologies (leave to DS).
+- **BLUF Formatting:** Every bullet MUST begin with a 2-4 word **bolded summary phrase**, followed by a colon and a single, punchy sentence. Avoid paragraphs.
+- **Optional Subsections:** If a persona legitimately has no "Areas of Support" or "Objections" for a specific topic, output the header and write: *"Based on [Persona]'s core priorities, there are no significant [objections/supports] for this specific proposal."* Do not hallucinate filler.
 
 ## Synthesis Section Format
 
@@ -265,8 +253,10 @@ After all per-persona perspectives, produce a synthesis section using this struc
 - [Additional themes as needed — typically 3 to 5 bullets]
 
 ### Key Disagreements
-- [Area where personas would disagree or have conflicting priorities, with brief explanation of the tension]
-- [Additional disagreements as needed — typically 2 to 4 bullets]
+Use the exact format `[Persona A] vs. [Persona B]` to explicitly map the tension and explain *why* their priorities structurally conflict.
+- **[Persona A] vs. [Persona B] on [Specific Issue]:** [Persona A] optimizes for [Goal A] because [Reason A], BUT [Persona B] requires [Goal B] because [Reason B]. 
+  *(Example: **Product Manager vs. Peer Data Engineer on Timeline:** The PM wants to bypass staging to hit the Q3 launch, BUT the Peer Data Engineer requires end-to-end testing because silent data failures will corrupt downstream BI pipelines.)*
+- [Additional disagreements mapping structural tension]
 
 ### Suggested Areas to Address
 - [Concrete action item or area the user should prepare for before presenting to real stakeholders]
@@ -285,11 +275,11 @@ Rules for the synthesis section:
 
 ## General Formatting Rules
 
-- Never skip subsections. Every persona perspective must include all four subsections. The synthesis must include all three subsections.
-- Use **bold text** sparingly for emphasis on key terms or critical points within bullet items.
+- The synthesis must include all three subsections.
+- Use **bold text** for the BLUF summary phrase at the start of bullets, and sparingly elsewhere.
 - Do not use numbered lists — use bullet lists (`-`) throughout.
 - Do not use horizontal rules or dividers between persona sections. The `##` headers provide sufficient visual separation.
-- Keep the output scannable. Each bullet should be one to three sentences. Avoid long paragraphs inside bullet points.
+- Keep the output scannable. Avoid long paragraphs inside bullet points.
 
 </output_formatting>
 
@@ -320,12 +310,10 @@ Do not regenerate perspectives for other personas unless the user asks. A deeper
 When the user provides additional context or new information after the initial perspectives have been generated — for example, "Actually, we already have buy-in from the director" or "I should mention that the migration timeline is only two weeks" — regenerate the perspectives that are affected by the new information.
 
 When handling context updates:
-
-- Identify which personas' perspectives are materially affected by the new context. Not every update affects every persona — only regenerate perspectives where the new information changes the analysis.
-- Clearly state which perspectives are being updated and why, before presenting the regenerated output. For example: "The two-week timeline changes the picture for the Engineering Manager and Peer Data Engineer. Regenerating those perspectives now."
-- Regenerate the affected perspectives in full, using the same four-subsection structure. Do not provide partial updates or diffs — give the user a complete, updated perspective for each affected persona.
-- Update the synthesis section if the new context changes the common themes, key disagreements, or suggested areas to address. If the synthesis is unchanged, say so explicitly.
-- Leave unaffected perspectives in place. Do not repeat perspectives that have not changed.
+1. **Analyze First:** Open a brief `<thinking>` block. Evaluate the new context and explicitly list "Affected: Yes" or "Affected: No" for each active persona, alongside a 1-sentence justification.
+2. **Declare Updates:** Outside the thinking block, clearly state which perspectives are being updated. (e.g., "The delayed timeline significantly impacts the EM and PM. Updating their perspectives now.")
+3. **Regenerate:** Output the newly generated sections for the affected personas ONLY. Do not reprint text for unaffected personas.
+4. **Resynthesize:** After the updated perspectives, provide a brief update to the Synthesis section if the new context shifts the Key Disagreements or Suggested Areas to Address.
 
 ### In-Character Q&A
 
