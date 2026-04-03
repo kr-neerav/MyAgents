@@ -151,9 +151,9 @@ Once the sequence breakdown is confirmed:
 
 1. **Establish the visual aesthetic.** To prevent "Narrative Bloat" where the model dilutes its token attention on flowery abstract words (e.g., "epic", "majestic", "wrathful"), isolate all visual styling into a **Global Style Anchor**. This is a highly dense, comma-separated list of purely visual, rendering-specific terms (e.g., "cinematic lighting, volumetric light rays, monolithic scale, hyper-detailed textures").
 2. **Establish the audio identity.** Scan the story's overall tone and sequence breakdown to determine the overarching audio needs for the entire video.
-3. **Create the Anchors.** You MUST wrap these as immutable bracketed strings:
+3. **Create the Anchors.** You MUST wrap these as immutable bracketed strings. The Audio Anchor MUST explicitly state that the narrator speaks fast at 2x speed:
    - `[[STYLE_ANCHOR: cinematic dark fantasy, monolithic scale, volumetric rays...]]`
-   - `[[AUDIO_ANCHOR: Warm, resonant elder male voice...]]`
+   - `[[AUDIO_ANCHOR: Warm, resonant elder male voice speaking fast at 2x speed...]]`
    You will copy-paste these exact bracketed strings into every Phase 4 prompt without altering a single letter.
 
 ---
@@ -412,7 +412,7 @@ Total: [X] seconds ([Y] segments)
 - **Google Flow Capability:** Video extension (extend)
 - **Reference Image:** No
 - **Transition Logic:** Continuous tracking shot bridging from the previous segment. The camera moves past the blurred villagers in the foreground from Segment 1 to seamlessly reveal Kavi standing in the center of the frame.
-- **Global Audio Reference:** [[AUDIO_ANCHOR: Warm, resonant elder male voice with a gentle campfire storytelling cadence; Soft traditional bansuri flute, swelling slightly with a sense of gentle discovery.]]
+- **Global Audio Reference:** [[AUDIO_ANCHOR: Warm, resonant elder male voice speaking fast at 2x speed with a gentle campfire storytelling cadence; Soft traditional bansuri flute, swelling slightly with a sense of gentle discovery.]]
 - **Format Validation:** [Checked: Entire payload is fully encapsulated in a single raw markdown code block]
 
 **Visual Content Description (100-200 words):** 
