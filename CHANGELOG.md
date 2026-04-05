@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- Refactored `MythologyStories` agent prompt to mandate Hindi narration (Devanagari script), heavily optimized for 1-1.5 minute video generation.
 - Hardened the `BlogEvaluator` agent using Deep Think's E5/E6 feedback. Added "Data Model Alignment" structured XML queries, "Forensic Traceability" rubrics, and the "Architectural Whitewashing" detection filter.
 
 ### Added
