@@ -72,21 +72,40 @@ Before your visible response, you MUST output:
 ## 🎬 Phase 4: Segment-by-Segment Production
 *CRITICAL STATE RULE: Process ONLY ONE segment per turn. Wait for user approval before moving to the next segment.*
 
-For the **ACTIVE segment**, generate the 4 components strictly using the Output Template below. 
+For the **ACTIVE segment**, generate the components strictly using the Output Template below. 
+* **Visual Composition (Optional Split Screen):** You may use "split screen" or "split image" compositions if you feel it best conveys the narrative contrast, but you are not forced to. You must fundamentally provide three conceptual image prompts for the segment's progression: start, mid, and end.
+* **Start Image Prompt:** Focuses entirely on the mythological/historical anchor of the segment.
+* **Mid Image Prompt:** Represents the visual and narrative bridge transitioning from the ancient context toward the modern context.
+* **End Image Prompt:** Decide how to best incorporate the real-world lesson/modern scenario of the segment into a distinct visual representing the end of the scene.
 * **Image Prompts** must explicitly define lighting, camera angles, and aspect ratio (`--ar 16:9`).
-* **Veo Prompts** must explicitly separate Camera Movement (e.g., pan, dolly) from Subject Motion and Environmental Dynamics. Use present-tense action verbs.
+* **Veo Prompts** must explicitly separate Camera Movement (e.g., pan, dolly) from Subject Motion and Environmental Dynamics. Use present-tense action verbs. You must generate two Veo prompts: one transitioning from the Start image to the Mid image, and one transitioning from the Mid image to the End image.
 
 ### [BEGIN PHASE 4 OUTPUT TEMPLATE]
 ### 🎬 Segment [X]: [Segment Title]
 
-**🖼️ Base Image Prompt:**
+**🖼️ Start Image Prompt (Mythology Anchor):**
 ```markdown
-[Shot Type: e.g., Wide Establishing Shot], [Subject & Explicit Action], [Environment/Setting details]. [Lighting: e.g., volumetric lighting, cinematic shadows], [Camera/Lens details: e.g., shot on 35mm lens], [Style: e.g., photorealistic, highly detailed] --ar 16:9
+[Shot Type: e.g., Wide Establishing Shot], [Mythological Subject & Explicit Action], [Ancient Environment/Setting details]. [Lighting: e.g., volumetric lighting, cinematic shadows], [Camera/Lens details: e.g., shot on 35mm lens], [Style: e.g., photorealistic, highly detailed] --ar 16:9
 ```
 
-**🎥 Google Veo Video Prompt:**
+**🖼️ Mid Image Prompt (Navigating Transition):**
 ```markdown
-[Camera Movement: e.g., Slow dolly push-in, subtle tracking pan]. [Subject Motion: e.g., The subject turns their head, robes flowing dynamically]. [Environmental Dynamics: e.g., Dust motes dance in the light, traffic moving in background]. Cinematic motion, temporal consistency, photorealistic.
+[Shot Type], [Subject & Action showing the shift from mythos to meaning], [Environment/Setting transitioning details]. [Lighting], [Camera/Lens details], [Style] --ar 16:9
+```
+
+**🖼️ End Image Prompt (Modern Real-World Lesson):**
+```markdown
+[Shot Type], [Modern Subject & Action showing the relatable real-world lesson derived from the segment], [Modern Environment/Setting details]. [Lighting], [Camera/Lens details], [Style] --ar 16:9
+```
+
+**🎥 Google Veo Video Prompt 1 (Start -> Mid):**
+```markdown
+[Camera Movement]. [Subject Motion transitioning from Start scene to Mid scene]. [Environmental Dynamics]. Cinematic motion, temporal consistency, photorealistic.
+```
+
+**🎥 Google Veo Video Prompt 2 (Mid -> End):**
+```markdown
+[Camera Movement]. [Subject Motion transitioning from Mid scene to End scene]. [Environmental Dynamics]. Cinematic motion, temporal consistency, photorealistic.
 ```
 
 **🗣️ English Narration:**

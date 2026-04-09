@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- Updated `VideoCreator` prompt to allow optional split screens, mandate 3 distinct conceptual image prompts per segment (Start, Mid, End), and generate 2 transitional Google Veo prompts.
 - Updated `AudioNarrator` prompt to explicitly clarify it receives strictly text transcriptions, not reference audio.
 - Updated `NotebookLMArchitect` prompt to instruct NotebookLM to map philosophical insights to real-world scenarios across life stages (Childhood, Adulthood, Old Age).
 - Fixed constraint conflicts in `MythologyStories` prompt to allow conversational English fallback tags, preventing silence on empty states.
