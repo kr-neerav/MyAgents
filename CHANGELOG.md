@@ -7,10 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- Updated `AudioNarrator` prompt to explicitly clarify it receives strictly text transcriptions, not reference audio.
+- Updated `NotebookLMArchitect` prompt to instruct NotebookLM to map philosophical insights to real-world scenarios across life stages (Childhood, Adulthood, Old Age).
+- Fixed constraint conflicts in `MythologyStories` prompt to allow conversational English fallback tags, preventing silence on empty states.
 - Refactored `MythologyStories` agent prompt to mandate Hindi narration (Devanagari script), heavily optimized for 1-1.5 minute video generation.
 - Hardened the `BlogEvaluator` agent using Deep Think's E5/E6 feedback. Added "Data Model Alignment" structured XML queries, "Forensic Traceability" rubrics, and the "Architectural Whitewashing" detection filter.
 
 ### Added
+- Added `AudioNarrator` agent prompt for raw, music-free voice narration generation from transcriptions.
+- Added `VideoCreator` agent prompt to orchestrate a 4-phase state machine for Hindu mythological video production.
+- Added `ArchitectureExtractor` for deep dive codebase history and architecture extraction.
+- Added the `RepoUnderstander` agent to ingest and synthesize enterprise codebases into a high-fidelity architectural mental model.
 - Created the `CHANGELOG.md` tracking system.
 - Added `Changelog Agent`, an outcome-focused Release Manager agent prompt.
 - Added a `.git/hooks/pre-commit` script to enforce changelog updates on every code change.
