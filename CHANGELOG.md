@@ -6,7 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- Added `deep-think-prompt.md` as the core reasoning system template.
+- Added `DataEngineeringInterviewer` agent suite with specific prompts for Data Modeling, Coding, and System Design interviews.
+- Added `DocumentAnalyzer` (The Principal Distiller) to ruthlessly extract expected value, blast radius, and N-order realities from verbose documents.
+- Added `PodcastDistiller` to process audio transcripts into high-fidelity structured briefs.
+- Added `InteractiveVideoCreator` prompt for multi-story workflow processing.
+- Added `Mythology/narration-prompt.md` to define mythological narration constraints.
+
 ### Changed
+- Integrated Deep Think methodology (thought deconstruction) into `BlogEvaluator`, `Learning`, `PaperBuddy`, and `AudioNarrator` prompts.
+- Updated `VideoCreator` workflow to streamline single-story inputs and establish a robust 5-phase or 4-phase state machine architecture.
 - Updated `VideoCreator` prompt to allow optional split screens, mandate 3 distinct conceptual image prompts per segment (Start, Mid, End), and generate 2 transitional Google Veo prompts.
 - Updated `AudioNarrator` prompt to explicitly clarify it receives strictly text transcriptions, not reference audio.
 - Updated `NotebookLMArchitect` prompt to instruct NotebookLM to map philosophical insights to real-world scenarios across life stages (Childhood, Adulthood, Old Age).
@@ -22,6 +32,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Created the `CHANGELOG.md` tracking system.
 - Added `Changelog Agent`, an outcome-focused Release Manager agent prompt.
 - Added a `.git/hooks/pre-commit` script to enforce changelog updates on every code change.
-
-### Added
 - Added the `BlogEvaluator` agent to ruthlessly fact-check Technical Blog drafts against their raw architecture source.
+
